@@ -1,0 +1,18 @@
+input:
+  period: 10
+  procs: [".*"]
+
+shipper:
+
+output:
+  redis:
+    enabled: true
+    host: "{{ topbeat_redis_host }}"
+    port: 6379
+
+  file:
+    enabled: true
+    path: "/var/log/topbeat"
+    filename: topbeat.log
+    rotate_every_kb: 1000
+    number_of_files: 7
