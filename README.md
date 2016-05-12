@@ -1,5 +1,7 @@
 # jpnewman.elk-topbeat
 
+[![Build Status](https://travis-ci.org/jpnewman/ansible-role-elk-topbeat.svg?branch=master)](https://travis-ci.org/jpnewman/ansible-role-elk-topbeat)
+
 This is a Ansible role to installs [topbeat](https://www.elastic.co/products/beats/topbeat)
 
 This role is based on role ```topbeat``` [https://github.com/rueian/ansible-elk-example.git]() by Rueian
