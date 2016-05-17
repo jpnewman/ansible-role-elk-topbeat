@@ -1,5 +1,6 @@
 # jpnewman.elk-topbeat
 
+[![Ansible Role](https://img.shields.io/ansible/role/9593.svg?maxAge=2592000)](https://galaxy.ansible.com/jpnewman/elk-topbeat/)
 [![Build Status](https://travis-ci.org/jpnewman/ansible-role-elk-topbeat.svg?branch=master)](https://travis-ci.org/jpnewman/ansible-role-elk-topbeat)
 
 This is a Ansible role to installs [topbeat](https://www.elastic.co/products/beats/topbeat)
