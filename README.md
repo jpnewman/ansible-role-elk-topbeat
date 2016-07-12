@@ -20,6 +20,7 @@ Ansible 2.x
 |```topbeat_platform```||amd64|
 |```topbeat_elasticsearch_host```||'localhost:9200'|
 |```topbeat_redis_host```||'localhost'|
+|```topbeat_period```||10|
 |```apt_cache_valid_time```||600|
 
 ## Dependencies

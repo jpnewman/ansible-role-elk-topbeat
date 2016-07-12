@@ -14,5 +14,6 @@ galaxy_info:
   galaxy_tags:
     - elk
     - topbeat
+    - monitoring
 
 dependencies: []
