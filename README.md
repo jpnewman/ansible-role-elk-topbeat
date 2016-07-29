@@ -5,7 +5,7 @@
 
 This is a Ansible role to installs [topbeat](https://www.elastic.co/products/beats/topbeat)
 
-This role is based on role ```topbeat``` <https://github.com/rueian/ansible-elk-example.git> by Rueian
+This role is based on role ```topbeat``` <https://github.com/rueian/ansible-elk-example> by Rueian
 
 ## Requirements
 
