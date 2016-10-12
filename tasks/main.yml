@@ -3,6 +3,7 @@
   register: installed_version
   always_run: True
   ignore_errors: True
+  changed_when: False
 
 - name: Download Topbeat agent
   get_url:
@@ -12,7 +13,7 @@
 
 - name: Install Topbeat agent
   apt: deb=/tmp/topbeat_{{ topbeat_version }}_{{ topbeat_platform }}.deb
-  when: installed_version.stdout != '{{ topbeat_version_check }}'
+  when: installed_version.stdout != '{{ topbeat_version_check }}' and not ansible_check_mode
 
 - name: Create directory for Filebeat Configures
   file: path=/var/log/topbeat state=directory
