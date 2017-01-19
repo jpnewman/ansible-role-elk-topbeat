@@ -1,7 +1,7 @@
 - name: Check if Topbeat is already at the right version
   shell: dpkg -s topbeat | grep Version | awk '{print $2}'
   register: installed_version
-  always_run: True
+  check_mode: no
   ignore_errors: True
   changed_when: False
 
@@ -20,10 +20,16 @@
 
 - name: Configure Topbeat
   template: src=topbeat.yml.j2 dest=/etc/topbeat/topbeat.yml
-  notify: Restart Topbeat
+  notify: restart topbeat
 
 - name: Index Topbeat Elasticsearch
   shell: curl -XPUT "http://{{ topbeat_elasticsearch_host }}/_template/topbeat" -d@/etc/topbeat/topbeat.template.json
+  when: topbeat_redis_proxy is not defined
 
-- name: Start Topbeat
+# - name: Index Topbeat Elasticsearch
+#   shell: curl --proxy '{{ topbeat_redis_proxy }}' -XPUT "http://{{ topbeat_elasticsearch_host }}/_template/topbeat" -d@/etc/topbeat/topbeat.template.json
+#   when: topbeat_redis_proxy is defined
+
+- name: Starting Topbeat
   service: name=topbeat state=started enabled=yes
+  ignore_errors: "{{ ansible_check_mode }}"

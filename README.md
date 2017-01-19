@@ -15,11 +15,14 @@ Ansible 2.x
 
 |Variable|Description|Default|
 |---|---|---|
-|```topbeat_version```||1.2.1|
-|```topbeat_version_check```||1.2.1|
+|```topbeat_version```||1.2.3|
+|```topbeat_version_check```||1.2.3|
 |```topbeat_platform```||amd64|
 |```topbeat_elasticsearch_host```||'localhost:9200'|
 |```topbeat_redis_host```||'localhost'|
+|```topbeat_redis_port```||6379|
+|```topbeat_redis_proxy```|||
+|```topbeat_redis_proxy_use_local_resolver```|||
 |```topbeat_period```||10|
 |```apt_cache_valid_time```||600|
 

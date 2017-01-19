@@ -8,7 +8,13 @@ output:
   redis:
     enabled: true
     host: "{{ topbeat_redis_host }}"
-    port: 6379
+    port: {{ topbeat_redis_port }}
+    {% if topbeat_redis_proxy is defined -%}
+    proxy_url: {{ topbeat_redis_proxy }}
+    {% endif -%}
+    {% if topbeat_redis_proxy_use_local_resolver is defined -%}
+    proxy_use_local_resolver: {{ topbeat_redis_proxy_use_local_resolver | lower }}
+    {% endif %}
 
   file:
     enabled: true

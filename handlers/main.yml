@@ -1,2 +1,3 @@
-- name: Restart Topbeat
+- name: restart topbeat
   service: name=topbeat state=restarted
+  ignore_errors: "{{ ansible_check_mode }}"
