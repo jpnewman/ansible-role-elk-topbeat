@@ -7,19 +7,21 @@
 
 - name: Download Topbeat agent
   get_url:
-    url: https://download.elastic.co/beats/topbeat/topbeat_{{ topbeat_version }}_{{ topbeat_platform }}.deb
+    url: "{{ topbeat_apt_repository }}"
     dest: /tmp
   when: installed_version.stdout != '{{ topbeat_version_check }}'
 
 - name: Install Topbeat agent
-  apt: deb=/tmp/topbeat_{{ topbeat_version }}_{{ topbeat_platform }}.deb
+  apt: deb="/tmp/{{ topbeat_apt_package_name }}"
   when: installed_version.stdout != '{{ topbeat_version_check }}' and not ansible_check_mode
 
 - name: Create directory for Filebeat Configures
   file: path=/var/log/topbeat state=directory
 
 - name: Configure Topbeat
-  template: src=topbeat.yml.j2 dest=/etc/topbeat/topbeat.yml
+  template:
+    src: topbeat.yml.j2
+    dest: /etc/topbeat/topbeat.yml
   notify: restart topbeat
 
 - name: Index Topbeat Elasticsearch
