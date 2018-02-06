@@ -17,6 +17,7 @@ Ansible 2.x
 |---|---|---|
 |```topbeat_version```||1.2.3|
 |```topbeat_version_check```||1.2.3|
+|```topbeat_name```|Overrides ```beat.name```||
 |```topbeat_platform```||amd64|
 |```topbeat_elasticsearch_host```||'localhost:9200'|
 |```topbeat_redis_host```||'localhost'|

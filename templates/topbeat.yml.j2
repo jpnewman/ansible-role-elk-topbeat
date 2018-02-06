@@ -3,6 +3,9 @@ input:
   procs: [".*"]
 
 shipper:
+  {% if topbeat_name is defined -%}
+  name: {{ topbeat_name | lower }}
+  {% endif %}
 
 output:
   redis:
